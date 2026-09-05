@@ -14,6 +14,8 @@ import {
 } from 'lucide-react';
 import EmergencyBar from '../components/EmergencyBar';
 
+import { HOSPITAL_CONFIG } from '../utils/config';
+
 export default function About() {
   return (
     <div className="space-y-16 sm:space-y-20">
@@ -209,9 +211,9 @@ export default function About() {
               Have questions regarding cataract evaluation, LASIK consultation, HydraFacial sessions, or appointment reservations?
             </p>
             <div className="pt-2 flex flex-wrap gap-4 text-xs font-semibold text-slate-700">
-              <span className="flex items-center gap-1.5"><Phone className="w-4 h-4 text-[#ecb612]" /> +91 80480 53215</span>
-              <span className="flex items-center gap-1.5"><Phone className="w-4 h-4 text-[#eb6506]" /> Direct: 93427 90784</span>
-              <span className="flex items-center gap-1.5"><Mail className="w-4 h-4 text-[#eb6506]" /> hospitalpaavai@gmail.com</span>
+              <span className="flex items-center gap-1.5"><Phone className="w-4 h-4 text-[#ecb612]" /> {HOSPITAL_CONFIG.phone}</span>
+              <span className="flex items-center gap-1.5"><Phone className="w-4 h-4 text-[#eb6506]" /> Direct: {HOSPITAL_CONFIG.mobile}</span>
+              <span className="flex items-center gap-1.5"><Mail className="w-4 h-4 text-[#eb6506]" /> {HOSPITAL_CONFIG.email}</span>
             </div>
           </div>
 

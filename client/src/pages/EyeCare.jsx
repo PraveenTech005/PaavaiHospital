@@ -17,6 +17,8 @@ import api from '../utils/api';
 import ServiceCard from '../components/ServiceCard';
 import EmergencyBar from '../components/EmergencyBar';
 
+import { HOSPITAL_CONFIG } from '../utils/config';
+
 export default function EyeCare() {
   const [services, setServices] = useState([]);
   const [filterCategory, setFilterCategory] = useState('All');
@@ -270,11 +272,11 @@ export default function EyeCare() {
           </div>
 
           <a
-            href="tel:+918048053215"
+            href={`tel:${HOSPITAL_CONFIG.phoneClean}`}
             className="bg-[#eb6506] hover:bg-[#d85800] text-white font-extrabold text-sm px-6 py-3.5 rounded-xl shadow-md transition-all shrink-0 flex items-center gap-2"
           >
             <Phone className="w-4 h-4" />
-            <span>Emergency: +91 80480 53215</span>
+            <span>Emergency: {HOSPITAL_CONFIG.phone}</span>
           </a>
         </div>
       </section>

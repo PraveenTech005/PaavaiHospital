@@ -14,6 +14,7 @@ import {
   Search,
   Clock
 } from 'lucide-react';
+import { HOSPITAL_CONFIG } from '../utils/config';
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -51,18 +52,18 @@ export default function Navbar() {
 
           <div className="flex items-center gap-2.5 sm:gap-4 shrink-0 ml-auto">
             <a
-              href="mailto:hospitalpaavai@gmail.com"
+              href={`mailto:${HOSPITAL_CONFIG.email}`}
               className="hidden lg:flex items-center gap-1.5 text-slate-300 hover:text-[#ecb612] transition-colors whitespace-nowrap text-[11px] sm:text-xs"
             >
               <Mail className="w-3.5 h-3.5 text-[#ecb612]" />
-              <span>hospitalpaavai@gmail.com</span>
+              <span>{HOSPITAL_CONFIG.email}</span>
             </a>
             <a
-              href="tel:+918048053215"
+              href={`tel:${HOSPITAL_CONFIG.phoneClean}`}
               className="flex items-center gap-1.5 text-white font-bold hover:brightness-110 transition-all bg-gradient-to-r from-[#eb6506] to-[#ecb612] px-2.5 py-0.5 rounded-full shadow-xs text-[11px] sm:text-xs whitespace-nowrap"
             >
               <Phone className="w-3 h-3 text-white animate-pulse" />
-              <span>+91 80480 53215</span>
+              <span>{HOSPITAL_CONFIG.phone}</span>
             </a>
             <Link
               to="/admin"
@@ -335,10 +336,10 @@ export default function Navbar() {
               <Calendar className="w-4 h-4" /> Book Appointment Now
             </Link>
             <a
-              href="tel:+918048053215"
+              href={`tel:${HOSPITAL_CONFIG.phoneClean}`}
               className="w-full bg-slate-100 text-slate-800 font-bold py-2.5 rounded-xl text-center text-xs sm:text-sm flex items-center justify-center gap-2"
             >
-              <Phone className="w-4 h-4 text-[#eb6506]" /> Emergency: +91 80480 53215
+              <Phone className="w-4 h-4 text-[#eb6506]" /> Emergency: {HOSPITAL_CONFIG.phone}
             </a>
           </div>
         </div>

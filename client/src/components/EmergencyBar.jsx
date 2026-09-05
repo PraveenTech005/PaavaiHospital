@@ -1,5 +1,6 @@
 import React from 'react';
 import { Phone, ShieldAlert } from 'lucide-react';
+import { HOSPITAL_CONFIG } from '../utils/config';
 
 export default function EmergencyBar() {
   return (
@@ -22,17 +23,17 @@ export default function EmergencyBar() {
 
           <div className="flex items-center gap-2 sm:gap-4 shrink-0">
             <a
-              href="tel:+918048053215"
+              href={`tel:${HOSPITAL_CONFIG.phoneClean}`}
               className="bg-white text-[#eb6506] font-extrabold px-3 py-1.5 rounded-lg hover:bg-amber-50 transition-colors flex items-center gap-1.5 shadow-xs text-xs sm:text-sm"
             >
               <Phone className="w-4 h-4 text-[#eb6506]" />
-              <span>Call: +91 80480 53215</span>
+              <span>Call: {HOSPITAL_CONFIG.phone}</span>
             </a>
             <a
-              href="tel:+919342790784"
+              href={`tel:${HOSPITAL_CONFIG.mobileClean}`}
               className="bg-black/25 hover:bg-black/40 text-white font-bold px-3 py-1.5 rounded-lg border border-white/30 transition-colors text-xs"
             >
-              <span>Dr. Mobile: 93427 90784</span>
+              <span>Dr. Mobile: {HOSPITAL_CONFIG.mobile}</span>
             </a>
           </div>
         </div>

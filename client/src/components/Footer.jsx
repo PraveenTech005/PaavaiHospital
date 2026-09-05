@@ -11,6 +11,8 @@ import {
   AlertCircle
 } from 'lucide-react';
 
+import { HOSPITAL_CONFIG } from '../utils/config';
+
 export default function Footer() {
   return (
     <footer className="bg-stone-950 text-slate-300 pt-16 pb-12 border-t border-amber-900/40">
@@ -24,10 +26,10 @@ export default function Footer() {
           <div className="space-y-1">
             <p className="font-bold text-white tracking-wide flex items-center gap-2">
               <span>Independent Specialty Facility in Salem</span>
-              <span className="bg-[#eb6506]/20 text-[#ecb612] px-2.5 py-0.5 rounded-md text-[11px] font-mono border border-[#eb6506]/30">Est. 2025</span>
+              <span className="bg-[#eb6506]/20 text-[#ecb612] px-2.5 py-0.5 rounded-md text-[11px] font-mono border border-[#eb6506]/30">Est. {HOSPITAL_CONFIG.est}</span>
             </p>
             <p className="text-slate-400 leading-relaxed">
-              <strong>Eye &amp; Skin Care Hospital</strong> located at Indhira Nagar, Seelanaickenpatti, Salem is an independent center dedicated exclusively to <strong>Ophthalmology (Eye Care)</strong> and <strong>Dermatology &amp; Aesthetic Medicine (Skin Care)</strong>. Please note that this hospital is <em>completely distinct and unrelated</em> to Paavai ENT Hospital in Coimbatore.
+              <strong>{HOSPITAL_CONFIG.tagline}</strong> located at Indhira Nagar, Seelanaickenpatti, Salem is an independent center dedicated exclusively to <strong>Ophthalmology (Eye Care)</strong> and <strong>Dermatology &amp; Aesthetic Medicine (Skin Care)</strong>. Please note that this hospital is <em>completely distinct and unrelated</em> to Paavai ENT Hospital in Coimbatore.
             </p>
           </div>
         </div>
@@ -50,7 +52,7 @@ export default function Footer() {
                   Paavai <span className="text-[#eb6506]">Hospital</span>
                 </h3>
                 <p className="text-xs text-[#ecb612] font-semibold">
-                  Eye &amp; Skin Care Hospital • Est. 2025
+                  {HOSPITAL_CONFIG.tagline} • Est. {HOSPITAL_CONFIG.est}
                 </p>
               </div>
             </div>
@@ -63,25 +65,25 @@ export default function Footer() {
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-[#ecb612] shrink-0 mt-0.5" />
                 <span className="text-slate-300">
-                  T S No 89, Indhira Nagar, Seelanaickenpatti, Salem, Tamil Nadu – 636201
+                  {HOSPITAL_CONFIG.location}
                 </span>
               </div>
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-[#ecb612] shrink-0" />
-                <a href="tel:+918048053215" className="text-white hover:text-[#ecb612] transition-colors font-bold">
-                  +91 80480 53215
+                <a href={`tel:${HOSPITAL_CONFIG.phoneClean}`} className="text-white hover:text-[#ecb612] transition-colors font-bold">
+                  {HOSPITAL_CONFIG.phone}
                 </a>
               </div>
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-[#eb6506] shrink-0" />
-                <a href="tel:+919342790784" className="text-[#ecb612] hover:text-white transition-colors font-bold">
-                  Direct Doctor: +91 93427 90784
+                <a href={`tel:${HOSPITAL_CONFIG.mobileClean}`} className="text-[#ecb612] hover:text-white transition-colors font-bold">
+                  Direct Doctor: {HOSPITAL_CONFIG.mobile}
                 </a>
               </div>
               <div className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-[#ecb612] shrink-0" />
-                <a href="mailto:hospitalpaavai@gmail.com" className="text-slate-300 hover:text-[#ecb612] transition-colors">
-                  hospitalpaavai@gmail.com
+                <a href={`mailto:${HOSPITAL_CONFIG.email}`} className="text-slate-300 hover:text-[#ecb612] transition-colors">
+                  {HOSPITAL_CONFIG.email}
                 </a>
               </div>
             </div>

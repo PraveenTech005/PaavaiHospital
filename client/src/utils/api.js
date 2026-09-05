@@ -1,9 +1,11 @@
 import axios from 'axios';
+import { API_BASE_URL } from './config';
 
-// Base API URL configuration from environment variables or fallback to relative '/api' proxy
-const baseURL = import.meta.env.VITE_API_BASE_URL 
-  ? `${import.meta.env.VITE_API_BASE_URL.replace(/\/$/, '')}/api`
-  : '/api';
+// Normalize baseURL whether configured as full URL (e.g. http://localhost:5000/api) or relative path
+const rawUrl = (API_BASE_URL || '/api').trim();
+const baseURL = rawUrl.startsWith('http')
+  ? (rawUrl.endsWith('/api') ? rawUrl : `${rawUrl.replace(/\/+$/, '')}/api`)
+  : (rawUrl.startsWith('/') ? rawUrl : `/${rawUrl}`);
 
 const api = axios.create({
   baseURL,

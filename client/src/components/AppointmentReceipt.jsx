@@ -15,8 +15,10 @@ import {
   QrCode, 
   Check, 
   AlertCircle,
-  Stethoscope
+  Stethoscope,
+  Download
 } from 'lucide-react';
+import { HOSPITAL_CONFIG } from '../utils/config';
 
 export default function AppointmentReceipt({ appointment, onBookAnother }) {
   const [copied, setCopied] = useState(false);
@@ -40,15 +42,15 @@ export default function AppointmentReceipt({ appointment, onBookAnother }) {
   // Generate Google Calendar Link
   const getGoogleCalendarUrl = () => {
     const title = encodeURIComponent(`Hospital Appointment: ${appointment.doctorName} (${appointment.department})`);
-    const details = encodeURIComponent(`Paavai Hospital - Eye & Skin Care (Salem)\nRef: ${appointment.appointmentRef}\nPatient: ${appointment.patientName}\nService: ${appointment.serviceName}\nPhone: +91 80480 53215`);
-    const locationStr = encodeURIComponent('T S No 89, Indhira Nagar, Seelanaickenpatti, Salem, Tamil Nadu 636201');
+    const details = encodeURIComponent(`${HOSPITAL_CONFIG.name} - ${HOSPITAL_CONFIG.tagline} (Salem)\nRef: ${appointment.appointmentRef}\nPatient: ${appointment.patientName}\nService: ${appointment.serviceName}\nPhone: ${HOSPITAL_CONFIG.phone}`);
+    const locationStr = encodeURIComponent(HOSPITAL_CONFIG.location);
     const dateFormatted = appointment.appointmentDate.replace(/-/g, '');
     return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&details=${details}&location=${locationStr}&dates=${dateFormatted}T043000Z/${dateFormatted}T053000Z`;
   };
 
   const getWhatsAppShareUrl = () => {
     const text = encodeURIComponent(
-      `*Eye & Skin Care Hospital - Appointment Confirmed*\n` +
+      `*${HOSPITAL_CONFIG.name} - Appointment Confirmed*\n` +
       `*Ref No:* ${appointment.appointmentRef}\n` +
       `*Token:* ${appointment.tokenNumber || 'Standard'}\n` +
       `*Patient:* ${appointment.patientName}\n` +
@@ -56,8 +58,8 @@ export default function AppointmentReceipt({ appointment, onBookAnother }) {
       `*Service:* ${appointment.serviceName}\n` +
       `*Date:* ${appointment.appointmentDate}\n` +
       `*Time:* ${appointment.timeSlot}\n` +
-      `*Venue:* T S No 89, Indhira Nagar, Seelanaickenpatti, Salem – 636201\n` +
-      `*Helpline:* +91 80480 53215`
+      `*Venue:* ${HOSPITAL_CONFIG.location}\n` +
+      `*Helpline:* ${HOSPITAL_CONFIG.phone}`
     );
     return `https://api.whatsapp.com/send?text=${text}`;
   };
@@ -259,7 +261,7 @@ export default function AppointmentReceipt({ appointment, onBookAnother }) {
                   T S No 89, Indhira Nagar, Seelanaickenpatti, Salem, Tamil Nadu – 636201 (Near Seelanaickenpatti Junction)
                 </p>
                 <p className="text-[#eb6506] font-semibold">
-                  Hospital Helpdesk: <strong>+91 80480 53215</strong> | Direct Doctor Mobile: <strong>93427 90784</strong>
+                  Hospital Helpdesk: <strong>{HOSPITAL_CONFIG.phone}</strong> | Direct Doctor Mobile: <strong>{HOSPITAL_CONFIG.mobile}</strong>
                 </p>
               </div>
             </div>

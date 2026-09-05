@@ -25,6 +25,7 @@ import api from '../utils/api';
 import EmergencyBar from '../components/EmergencyBar';
 import DoctorCard from '../components/DoctorCard';
 import ServiceCard from '../components/ServiceCard';
+import { HOSPITAL_CONFIG } from '../utils/config';
 
 export default function Home() {
   const [doctors, setDoctors] = useState([]);
@@ -117,11 +118,11 @@ export default function Home() {
                 </Link>
 
                 <a
-                  href="tel:+918048053215"
+                  href={`tel:${HOSPITAL_CONFIG.phoneClean}`}
                   className="bg-white hover:bg-amber-50/50 text-slate-900 font-bold text-base px-6 py-4 rounded-2xl border-2 border-amber-200 shadow-xs transition-all flex items-center justify-center gap-2"
                 >
                   <Phone className="w-5 h-5 text-[#eb6506] animate-pulse" />
-                  <span>Call: +91 80480 53215</span>
+                  <span>Call: {HOSPITAL_CONFIG.phone}</span>
                 </a>
               </div>
 

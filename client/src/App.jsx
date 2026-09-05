@@ -37,7 +37,7 @@ export default function App() {
   return (
     <Router>
       <ScrollToTop />
-      <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 font-sans selection:bg-teal-500 selection:text-white">
+      <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 font-sans selection:bg-[#eb6506] selection:text-white">
         <Navbar />
         
         <main className="flex-1">

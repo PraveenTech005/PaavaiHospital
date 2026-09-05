@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import api from '../utils/api';
 import EmergencyBar from '../components/EmergencyBar';
+import { HOSPITAL_CONFIG } from '../utils/config';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -125,12 +126,12 @@ export default function Contact() {
                 </div>
                 <div className="space-y-1 text-xs sm:text-sm">
                   <p className="font-bold text-slate-900">Telephone / Helpdesk:</p>
-                  <a href="tel:+918048053215" className="font-bold text-[#eb6506] hover:underline block">
-                    +91 80480 53215
+                  <a href={`tel:${HOSPITAL_CONFIG.phoneClean}`} className="font-bold text-[#eb6506] hover:underline block">
+                    {HOSPITAL_CONFIG.phone}
                   </a>
                   <p className="text-[11px] text-slate-500">Doctor Direct Mobile:</p>
-                  <a href="tel:+919342790784" className="font-bold text-[#eb6506] hover:underline block">
-                    +91 93427 90784
+                  <a href={`tel:${HOSPITAL_CONFIG.mobileClean}`} className="font-bold text-[#eb6506] hover:underline block">
+                    {HOSPITAL_CONFIG.mobile}
                   </a>
                 </div>
               </div>
@@ -141,10 +142,11 @@ export default function Contact() {
                   <Mail className="w-5 h-5" />
                 </div>
                 <div className="space-y-1 text-xs sm:text-sm">
-                  <p className="font-bold text-slate-900">Email Inquiry:</p>
-                  <a href="mailto:hospitalpaavai@gmail.com" className="text-slate-700 hover:text-[#eb6506] font-medium block">
-                    hospitalpaavai@gmail.com
+                  <p className="font-bold text-slate-900">Official Hospital Email:</p>
+                  <a href={`mailto:${HOSPITAL_CONFIG.email}`} className="font-semibold text-slate-700 hover:text-[#eb6506] hover:underline block">
+                    {HOSPITAL_CONFIG.email}
                   </a>
+                  <p className="text-[11px] text-slate-500">Inquiries, Insurance &amp; Feedback</p>
                 </div>
               </div>
 
